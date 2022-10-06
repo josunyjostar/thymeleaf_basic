@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bootstrap to thymeleaf</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Employees</h1>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>User Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.getName()}"></td>
+                        <td th:text="${user.getEmail()}"></td>
+                        <td>
+                            <a class="btn btn-primary" th:if="${user.role} == 'ADMIN'">Update</a>
+                            <a class="btn btn-danger" th:if="${user.role} == 'ADMIN'">Delete</a>
+                            <a class="btn btn-primary" th:unless="${user.role} == 'ADMIN'">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
