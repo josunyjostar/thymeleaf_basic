@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>js,css 연결</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <script defer th:src="@{/js/action.js}" type="text/javascript"></script>
+
+<body>
+  <p th:text="'welcome. ' + ${data}"></p>
+  <button type="button" th:onclick="demo()">demo click!</button>
+</body>
+
+</html>
